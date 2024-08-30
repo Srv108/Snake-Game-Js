@@ -8,6 +8,8 @@ let lastPaintTime = 0;
 let speed = 6;
 let snakeArr = [{x : 10,y : 10}];
 let food = {x : 6,y : 7};
+const gameOver = new Audio('./assets/gameover.mp3')
+const gamemusic = new Audio('./assets/game.mp3')
 
 const button = document.querySelectorAll("#btn");
 
@@ -26,6 +28,7 @@ function main(ctime){
 
 function isCollide(snakeArr){
     // if snake collide with yourself
+
     for(let i=1; i<snakeArr.length;i++){
         if(snakeArr[0].x === snakeArr[i].x && snakeArr[0].y === snakeArr[i].y){
             return true;
@@ -44,11 +47,13 @@ function isCollide(snakeArr){
 function game(){
     // if snake collide with wall and yourself 
     if(isCollide(snakeArr)){
+        gameOver.play();
+        gamemusic.pause();
         inputDir = {x : 0, y : 0};
         alert("Game Over. Press any key to play again!");
         snakeArr = [{x : 10,y : 10}];
-        // musicSound.play();
         score = 0; 
+        scoreBox.textContent = "Score : " + 0;
     }
 
     // updating the snake array and updating the food coordinates if you have eaten the food 
@@ -101,6 +106,7 @@ function game(){
 
 window.requestAnimationFrame(main);
 window.addEventListener("keydown",(e)=>{
+    gamemusic.play();
     switch (e.key){
         case "ArrowUp" :
             console.log("ArrowsUp");
@@ -133,6 +139,7 @@ window.addEventListener("keydown",(e)=>{
 
 button.forEach((btn) => {
     btn.addEventListener('click',(event)=>{
+        buttonSound.play();
         switch(event.target.value){
             case "up" :
             // console.log("ArrowsUp");
