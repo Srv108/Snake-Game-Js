@@ -9,6 +9,8 @@ let speed = 3;
 let snakeArr = [{x : 10,y : 10}];
 let food = {x : 6,y : 7};
 
+const button = document.querySelectorAll("#btn");
+
 let scoreBox = document.getElementById("scoreBox");
 // const gameMusic = new Audio('./assets/music.mp3');
 
@@ -127,4 +129,37 @@ window.addEventListener("keydown",(e)=>{
         default:
             break;
     }
+})
+
+button.forEach((btn) => {
+    btn.addEventListener('click',(event)=>{
+        switch(event.target.value){
+            case "up" :
+            // console.log("ArrowsUp");
+            inputDir.x = 0;
+            inputDir.y = -1;
+            break;
+
+            case "down" :
+                // console.log("ArrowDown");
+                inputDir.x = 0;
+                inputDir.y = 1;
+                break;
+
+            case "left" :
+                // console.log("ArrowLeft");
+                inputDir.x = -1;
+                inputDir.y = 0;
+                break;
+
+            case "right" :
+                // console.log("ArrowRight");
+                inputDir.x = 1;
+                inputDir.y = 0;
+                break;
+
+            default:
+                break;
+        }
+    })
 })
