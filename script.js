@@ -45,6 +45,7 @@ function isCollide(snakeArr){
 // game function 
 
 function game(){
+    gamemusic.play();
     // if snake collide with wall and yourself 
     if(isCollide(snakeArr)){
         gameOver.play();
@@ -106,7 +107,7 @@ function game(){
 
 window.requestAnimationFrame(main);
 window.addEventListener("keydown",(e)=>{
-    gamemusic.play();
+    
     switch (e.key){
         case "ArrowUp" :
             console.log("ArrowsUp");
