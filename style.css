@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("./assets/snakepic.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nerko One', cursive;
+    color: #fff;
+}
+
+#board {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+    border: 4px solid #333;
+    width: 85vmin;
+    height: 85vmin;
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.head {
+    border-radius: 10px;
+    background: linear-gradient(135deg, red, yellow);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.snake {
+    background: linear-gradient(135deg, green,purple);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.food {
+    border-radius: 15px;
+    background: radial-gradient(circle, #ff7e5f, #feb47b);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+#scoreBox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
